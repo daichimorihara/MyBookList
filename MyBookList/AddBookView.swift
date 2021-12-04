@@ -10,6 +10,8 @@ import SwiftUI
 struct AddBookView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+
+    @State private var showingAlert = false
     
     @State private var title = ""
     @State private var author = ""
@@ -39,22 +41,38 @@ struct AddBookView: View {
                 } header: {
                     Text("Write a review")
                 }
-                
-                Section {
-                    Button("Save") {
-                        let newBook = Book(context: moc)
-                        newBook.id = UUID()
-                        newBook.title = title
-                        newBook.author = author
-                        newBook.rating = Int16(rating)
-                        newBook.review = review
-                        newBook.genre = genre
-                        try? moc.save()
+            }
+            .navigationTitle("Add Book")
+            .alert("Some information isn't filled out", isPresented: $showingAlert) {
+                Button("OK") {}
+            } message: {
+                Text("You must fill out every information about this book")
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
                         dismiss()
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        
+                        if title.isEmpty || author.isEmpty || genre.isEmpty {
+                             showingAlert = true
+                        } else {
+                            let newBook = Book(context: moc)
+                            newBook.id = UUID()
+                            newBook.title = title
+                            newBook.author = author
+                            newBook.rating = Int16(rating)
+                            newBook.review = review
+                            newBook.genre = genre
+                            try? moc.save()
+                            dismiss()
+                        }
+                    }
+                }
             }
-            .navigationTitle("Add Book")
         }
     }
 }
