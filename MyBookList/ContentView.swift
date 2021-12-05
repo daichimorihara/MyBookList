@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title), SortDescriptor(\.author)]) var books: FetchedResults<Book>
@@ -14,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(books) { book in
+                ForEach(books, id: \.self) { book in
                     NavigationLink {
                         DetailView(book: book)
                     } label: {
@@ -32,9 +33,9 @@ struct ContentView: View {
                             
                             
                             VStack(alignment: .leading) {
-                                Text(book.title ?? "Unknown")
+                                Text(book.wrappedTitle)
                                     .font(.headline)
-                                Text(book.author ?? "Unknown")
+                                Text(book.wrappedAuthor)
                                     .foregroundColor(.secondary)
                             }
                         }
@@ -66,7 +67,9 @@ struct ContentView: View {
             let book = books[offset]
             moc.delete(book)
         }
-        try? moc.save()
+        if moc.hasChanges {
+            try? moc.save()
+        }
     }
 }
 

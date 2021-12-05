@@ -16,11 +16,11 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
-                Image(book.genre ?? "Fantasy")
+                Image(book.wrappedGenre)
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTACY")
+                Text(book.wrappedGenre.uppercased())
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -30,17 +30,28 @@ struct DetailView: View {
                     .offset(x: -5, y: -5)
             }
             
-            Text(book.author ?? "Unknown Author")
+            Text(book.wrappedAuthor)
                 .font(.title)
                 .foregroundColor(.secondary)
             
-            Text(book.review ?? "No review")
+            Text(book.wrappedReview)
                 .padding()
             
             RatingView(rating: .constant(Int(book.rating)))
+            HStack {
+                Spacer()
+                Text("This review is written on ") 
+                    .foregroundColor(.secondary)
+                +
+                Text("\(book.wrappedDate)")
+                    .font(.body)
+                    .foregroundColor(.primary)
+                
+            }
+            .padding()
             
         }
-        .navigationTitle(book.title ?? "Unknown Book")
+        .navigationTitle(book.wrappedTitle)
         .navigationBarTitleDisplayMode(.inline)
         .alert("Delete book?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive, action: deleteBook )
@@ -65,6 +76,8 @@ struct DetailView: View {
         try? moc.save()
         dismiss()
     }
+
+    
 }
 
 //struct DetailView_Previews: PreviewProvider {

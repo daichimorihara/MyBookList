@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42C4EFB8275CDB7D002F6233 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4EFB6275CDB7D002F6233 /* Book+CoreDataClass.swift */; };
+		42C4EFB9275CDB7D002F6233 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4EFB7275CDB7D002F6233 /* Book+CoreDataProperties.swift */; };
 		42E20AAF275A084E00837FF1 /* MyBookListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E20AAE275A084E00837FF1 /* MyBookListApp.swift */; };
 		42E20AB1275A084E00837FF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E20AB0275A084E00837FF1 /* ContentView.swift */; };
 		42E20AB3275A084E00837FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E20AB2275A084E00837FF1 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42C4EFB6275CDB7D002F6233 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42C4EFB7275CDB7D002F6233 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42E20AAB275A084E00837FF1 /* MyBookList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E20AAE275A084E00837FF1 /* MyBookListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookListApp.swift; sourceTree = "<group>"; };
 		42E20AB0275A084E00837FF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		42E20AAD275A084E00837FF1 /* MyBookList */ = {
 			isa = PBXGroup;
 			children = (
+				42C4EFB6275CDB7D002F6233 /* Book+CoreDataClass.swift */,
+				42C4EFB7275CDB7D002F6233 /* Book+CoreDataProperties.swift */,
 				42E20AAE275A084E00837FF1 /* MyBookListApp.swift */,
 				42E20AB0275A084E00837FF1 /* ContentView.swift */,
 				42E20AB2275A084E00837FF1 /* Assets.xcassets */,
@@ -154,6 +160,8 @@
 			files = (
 				42EDBBD3275B5EB700E9E526 /* RatingView.swift in Sources */,
 				42E20AB1275A084E00837FF1 /* ContentView.swift in Sources */,
+				42C4EFB9275CDB7D002F6233 /* Book+CoreDataProperties.swift in Sources */,
+				42C4EFB8275CDB7D002F6233 /* Book+CoreDataClass.swift in Sources */,
 				42EDBBCF275B3A4D00E9E526 /* DetailView.swift in Sources */,
 				42E20AC0275A34EA00837FF1 /* DataController.swift in Sources */,
 				42E20AAF275A084E00837FF1 /* MyBookListApp.swift in Sources */,
